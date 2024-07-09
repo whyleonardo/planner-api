@@ -25,4 +25,7 @@ def test_find_links_from_trip():
     conn = db_connection_handler.get_connection()
     links_repository = LinksRepository(conn)
 
-    links_repository.find_links_from_trip(TRIP_ID)
+    response = links_repository.find_links_from_trip(TRIP_ID)
+
+    assert isinstance(response, list)
+    assert isinstance(response[0], tuple)
