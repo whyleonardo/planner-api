@@ -25,7 +25,4 @@ def test_find_links_from_trip():
     conn = db_connection_handler.get_connection()
     links_repository = LinksRepository(conn)
 
-    links = links_repository.find_links_from_trip(TRIP_ID)
-
-    print()
-    print(links)
+    links_repository.find_links_from_trip(TRIP_ID)
