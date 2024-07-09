@@ -9,7 +9,7 @@ TRIP_ID = str(uuid.uuid4())
 LINK = "https://airbnb.com"
 
 
-# @pytest.mark.skip(reason="Interaction with database")
+@pytest.mark.skip(reason="Interaction with database")
 def test_registry_link():
     conn = db_connection_handler.get_connection()
     links_repository = LinksRepository(conn)
@@ -23,7 +23,7 @@ def test_registry_link():
     links_repository.registry_link(link_infos)
 
 
-# @pytest.mark.skip(reason="Interaction with database")
+@pytest.mark.skip(reason="Interaction with database")
 def test_find_links_from_trip():
     conn = db_connection_handler.get_connection()
     links_repository = LinksRepository(conn)
