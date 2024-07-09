@@ -7,6 +7,7 @@ db_connection_handler.connect()
 LINK_ID = str(uuid.uuid4())
 TRIP_ID = str(uuid.uuid4())
 LINK = "https://airbnb.com"
+TITLE = "Airbnb"
 
 
 @pytest.mark.skip(reason="Interaction with database")
@@ -14,11 +15,7 @@ def test_registry_link():
     conn = db_connection_handler.get_connection()
     links_repository = LinksRepository(conn)
 
-    link_infos = {
-        "id": LINK_ID,
-        "trip_id": TRIP_ID,
-        "link": LINK,
-    }
+    link_infos = {"id": LINK_ID, "trip_id": TRIP_ID, "link": LINK, "title": TITLE}
 
     links_repository.registry_link(link_infos)
 
