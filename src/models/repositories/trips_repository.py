@@ -6,7 +6,7 @@ class TripsRepository:
     def __init__(self, conn: Connection) -> None:
         self.__conn = conn
 
-    def create_trip(self, trips__infos: Dict) -> None:
+    def create_trip(self, trips_infos: Dict) -> None:
         cursor = self.__conn.cursor()
         cursor.execute(
             """
@@ -16,12 +16,12 @@ class TripsRepository:
                   (?, ?, ?, ?, ?, ?)    
             """,
             (
-                trips__infos["id"],
-                trips__infos["destination"],
-                trips__infos["start_date"],
-                trips__infos["end_date"],
-                trips__infos["owner_name"],
-                trips__infos["owner_email"],
+                trips_infos["id"],
+                trips_infos["destination"],
+                trips_infos["start_date"],
+                trips_infos["end_date"],
+                trips_infos["owner_name"],
+                trips_infos["owner_email"],
             ),
         )
         self.__conn.commit()
